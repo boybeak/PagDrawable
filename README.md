@@ -3,7 +3,7 @@
 A showcase project that display PAG animations in a Drawable and in a SpannableString.
 
 ## Showcase
-[Showcase](https://github.com/boybeak/PagDrawable/blob/main/art/span.mp4)
+![Showcase](./art/span.gif)
 
 ## Code
 ```kotlin
