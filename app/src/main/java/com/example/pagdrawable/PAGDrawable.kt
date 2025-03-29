@@ -50,8 +50,6 @@ class PAGDrawable(activity: Activity, private val onUpdate: (() -> Unit)? = null
     override fun draw(canvas: Canvas) {
         val bitmap = bitmapRef?.get() ?: return
 
-        Log.d(TAG, "draw bounds=${bounds}")
-
         // 获取原始尺寸和目标尺寸
         val srcWidth = bitmap.width.toFloat()
         val srcHeight = bitmap.height.toFloat()
