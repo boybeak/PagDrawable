@@ -1,11 +1,10 @@
 package com.example.pagdrawable
 
 import android.app.Activity
-import android.graphics.Canvas
 import android.graphics.Paint
 import android.text.style.ImageSpan
 
-class PAGSpan(activity: Activity) : ImageSpan(PAGDrawable(activity)) {
+class PAGSpan(activity: Activity, onUpdate: (() -> Unit)? = null) : ImageSpan(PAGDrawable(activity, onUpdate)) {
 
     companion object {
         private const val TAG = "PAGSpan"
@@ -29,20 +28,6 @@ class PAGSpan(activity: Activity) : ImageSpan(PAGDrawable(activity)) {
         val width = (paint.measureText(text, start, end) + 0.5f).toInt()
         pagDrawable.setBounds(0, 0, width, paint.textSize.toInt())
         return width
-    }
-
-    override fun draw(
-        canvas: Canvas,
-        text: CharSequence?,
-        start: Int,
-        end: Int,
-        x: Float,
-        top: Int,
-        y: Int,
-        bottom: Int,
-        paint: Paint
-    ) {
-        super.draw(canvas, text, start, end, x, top, y, bottom, paint)
     }
 
 }

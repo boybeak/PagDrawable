@@ -3,7 +3,6 @@ package com.example.pagdrawable
 import android.app.Activity
 import android.graphics.Bitmap
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.ColorFilter
 import android.graphics.PixelFormat
 import android.graphics.Rect
@@ -12,7 +11,7 @@ import android.util.Log
 import java.lang.ref.WeakReference
 import kotlin.math.min
 
-class PAGDrawable(activity: Activity) : Drawable(), PAGDrawableManager.OnPAGDrawCallback {
+class PAGDrawable(activity: Activity, private val onUpdate: (() -> Unit)? = null) : Drawable(), PAGDrawableManager.OnPAGDrawCallback {
 
     companion object {
         private const val TAG = "PAGDrawable"
@@ -80,8 +79,9 @@ class PAGDrawable(activity: Activity) : Drawable(), PAGDrawableManager.OnPAGDraw
             (left + scaledWidth).toInt(),
             (top + scaledHeight).toInt()
         )
-
         canvas.drawBitmap(bitmap, srcRect, dstRect, null)
+
+        onUpdate?.invoke()
     }
 
     override fun onDraw(bitmap: Bitmap) {
@@ -97,4 +97,5 @@ class PAGDrawable(activity: Activity) : Drawable(), PAGDrawableManager.OnPAGDraw
     override fun getOpacity(): Int {
         return PixelFormat.TRANSLUCENT
     }
+
 }

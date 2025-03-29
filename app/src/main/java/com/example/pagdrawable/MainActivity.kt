@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
 //        pagDrawable.path = "assets://live_follow.pag"
 //        imageView.setImageDrawable(pagDrawable)
 
-        val span = PAGSpan(this)
+        val span = PAGSpan(this) {
+            textView.invalidate()
+        }
         span.path = "assets://live_follow.pag"
         val spannableString = SpannableString("Hello, World!")
         spannableString.setSpan(span, 0, 2, SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE)
