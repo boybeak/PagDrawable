@@ -1,6 +1,6 @@
 # PagDrawable
 
-A showcase project that display PAG animations in a Drawable and in a SpannableString.
+A showcase project that display PAG animations in Drawable and SpannableString.
 
 ## Showcase
 <img src="./art/span.gif" width="240">
