@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import org.libpag.PAGImageView
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         private const val TAG = "MainActivity"
     }
 
-    private val imageView by lazy { findViewById<ImageView>(R.id.imageView) }
+    private val pagImageView by lazy { findViewById<PAGImageView>(R.id.pagImageView) }
     private val textView by lazy { findViewById<TextView>(R.id.textView) }
     private val button by lazy { findViewById<Button>(R.id.button) }
 
-    private val text = "This is a very long text that should be <span> wrapped to multiple lines. And some spans should <span> be displayed here."
+    private val text = "This is a very long text that should be <span> wrapped to multiple lines. And some spans should <span> be displayed here. \nClick refresh button if not working."
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        pagImageView.path = "assets://live_follow.pag"
+        pagImageView.setRepeatCount(-1)
+        pagImageView.play()
 
         val spannableString = SpannableString(text)
         var end = 0

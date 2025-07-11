@@ -9,16 +9,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <!--<org.libpag.PAGImageView
+    <org.libpag.PAGImageView
         android:id="@+id/pagImageView"
         android:layout_width="240dp"
         android:layout_height="240dp"
-        />-->
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/border"
         />
     <TextView
         android:id="@+id/textView"

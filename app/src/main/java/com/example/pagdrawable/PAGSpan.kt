@@ -29,5 +29,4 @@ class PAGSpan(activity: Activity, onUpdate: (() -> Unit)? = null) : ImageSpan(PA
         pagDrawable.setBounds(0, 0, width, paint.textSize.toInt())
         return width
     }
-
 }
